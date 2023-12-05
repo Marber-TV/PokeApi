@@ -13,7 +13,6 @@ object PokemonProvider {
     private var cargado = false
 
     suspend fun getPokemons(): List<Pokemon> {
-        delay(1000)
         val lista = pokemons
         val service = PokeApiService.create()
         if (!cargado) {
@@ -32,7 +31,7 @@ object PokemonProvider {
     }
 
     suspend fun addLista(id: Int) {
-        delay(1000)
+        delay(500)
         val response = getPokemon(id)
         if (response.isSuccessful) {
             val pokemon = response.body()

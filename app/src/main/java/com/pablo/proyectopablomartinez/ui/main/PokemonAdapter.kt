@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import androidx.appcompat.widget.AppCompatImageButton
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.pablo.proyectopablomartinez.R
@@ -21,8 +22,8 @@ class PokemonAdapter(
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val imagen: ImageView = view.findViewById(R.id.imagen)
-        val botonBorrar: Button = view.findViewById(R.id.btnBorrar)
-        val botonEditar: Button = view.findViewById(R.id.btnEditar)
+        val botonEditar :AppCompatImageButton? = view.findViewById<AppCompatImageButton>(R.id.btnEditar)
+        val botonBorrar: AppCompatImageButton? = view.findViewById<AppCompatImageButton>(R.id.btnBorrar)
         val binding = ViewPokemonBinding.bind(view)
 
         fun bind(pokemon: Pokemon) {
@@ -45,10 +46,10 @@ class PokemonAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(pokemons[position])
-        holder.botonBorrar.setOnClickListener {
+        holder.botonBorrar?.setOnClickListener {
             listener.onDelete(position)
         }
-        holder.botonEditar.setOnClickListener {
+        holder.botonEditar?.setOnClickListener {
             listener.onModify(position)
         }
         holder.imagen.setOnClickListener {

@@ -24,5 +24,6 @@
     <color name="dark_purple">#FF400040</color>
     <color name="light_purple">#CEC000C0</color>
     <color name="lighter_purple">#CECC8FCC</color>
-
+    <color name="transparent">#00000000</color>
+    <color name="EVENlighter_purple">#CEE8BAE8</color>
 </resources>

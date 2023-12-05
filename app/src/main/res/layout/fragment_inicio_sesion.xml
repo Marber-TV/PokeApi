@@ -34,13 +34,14 @@
             android:id="@+id/font"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Inicia Sesión"
             android:layout_marginTop="80dp"
+            android:text="Inicia Sesión"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="30dp"
             app:layout_constraintBottom_toTopOf="@+id/editText"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -72,13 +73,40 @@
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/dark_purple"
             android:text="ENTRAR"
             android:textColor="@color/white"
             android:textSize="20dp"
             android:textStyle="bold"
-            android:backgroundTint="@color/dark_purple"
             app:layout_constraintTop_toBottomOf="@+id/editText2"
             tools:layout_editor_absoluteX="0dp" />
+
+        <TextView
+            android:id="@+id/noTienesCuenta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿No tienes cuenta?"
+            android:textColor="@color/white"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.491"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HAZTE YA UNA GRATIS"
+            android:textColor="@color/white"
+            android:textSize="25dp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginBottom="30dp"
+            />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

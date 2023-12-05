@@ -2,60 +2,67 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="16dp"
     app:cardCornerRadius="16dp"
-    app:cardElevation="16dp"
-    android:layout_margin="16dp">
+    app:cardElevation="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:backgroundTint="@color/light_purple"
+        android:orientation="vertical"
         android:padding="16dp">
 
         <ImageView
             android:id="@+id/imagen"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:scaleType="centerCrop"
             android:adjustViewBounds="true"
-            />
+            android:scaleType="centerCrop" />
 
         <LinearLayout
-            android:layout_marginTop="16dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="80dp"
+            android:layout_marginTop="16dp"
             android:orientation="horizontal">
-            <Button
+
+            <ImageButton
                 android:id="@+id/btnEditar"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:text="EDIT"
-                android:background="@color/dark_purple"
                 android:layout_weight="1"
-                />
+                android:src="@drawable/lapiz"
+                android:background="@color/transparent"
+                android:text="EDIT" />
+
+
+
+
 
             <TextView
                 android:id="@+id/nombre"
-                android:background="@color/light_purple"
                 android:layout_width="0dp"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:layout_marginTop="10dp"
+                android:layout_margin="5dp"
+                android:text="POKEMON"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Headline"
-                android:textSize="30dp"
-                android:text="POKEMON"
-                android:layout_weight="2"/>
+                android:textColor="@color/dark_purple"
+                android:textSize="30dp" />
 
-            <Button
+            <ImageButton
+                android:src="@drawable/papelera"
                 android:id="@+id/btnBorrar"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@color/dark_purple"
+                android:background="@color/transparent"
                 android:text="DELETE" />
         </LinearLayout>
 
-
     </LinearLayout>
-
 </androidx.cardview.widget.CardView>
