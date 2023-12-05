@@ -27,7 +27,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
             val poke = PokemonProvider.pokemons[position] // Obtener el Pokemon con el índice proporcionado
             poke.let {
                 binding.nombreDetalle.text = it.name.capitalize(Locale.ROOT)
-
+                binding.idDetalle.text = it.id.toString()
                 val url =
                     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${it.id}.png"
                 Glide.with(binding.root)

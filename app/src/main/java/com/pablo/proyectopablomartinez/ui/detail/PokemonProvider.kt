@@ -1,5 +1,7 @@
 package com.pablo.proyectopablomartinez.ui.detail
 
+import android.content.Context
+import android.widget.Toast
 import com.pablo.proyectopablomartinez.model.Pokemon
 import com.pablo.proyectopablomartinez.model.server.PokeApiService
 import com.pablo.proyectopablomartinez.ui.detail.PokemonProvider.pokemons
@@ -11,6 +13,7 @@ object PokemonProvider {
 
     var pokemons: MutableList<Pokemon> = mutableListOf()
     private var cargado = false
+    var contador = 0
 
     suspend fun getPokemons(): List<Pokemon> {
         val lista = pokemons
@@ -23,12 +26,38 @@ object PokemonProvider {
                     val pokemon = response.body()
                     if (pokemon != null) {
                         lista.add(pokemon)
+                        contador++
                     }
                 }
             }
         }
         return lista
     }
+
+
+    suspend fun getSetPokemons(limit: Int, contexto: Context): List<Pokemon> {
+        val lista = pokemons
+        if (limit + contador + 1 > 1017) {
+            Toast.makeText(contexto, "No hay más pokemons", Toast.LENGTH_SHORT).show()
+        } else {
+            val service = PokeApiService.create()
+            for (i in contador + 1..limit + contador + 1) {
+                val response = service.getPokemon(i).awaitResponse()
+                if (response.isSuccessful) {
+                    val pokemon = response.body()
+                    if (pokemon != null) {
+                        lista.add(pokemon)
+                        contador++
+                    }
+                }
+            }
+
+        }
+        return lista
+    }
+
+
+
 
     suspend fun addLista(id: Int) {
         delay(500)
@@ -37,16 +66,15 @@ object PokemonProvider {
             val pokemon = response.body()
             if (pokemon != null) {
                 pokemons.add(pokemon)
-            } else {
-                // Manejo de errores aquí
             }
-        } else {
-            // Manejo de errores aquí
         }
     }
 
 
     suspend fun getPokemon(id: Int): Response<Pokemon> {
+        if(id>1017){
+            Toast.makeText(null, "No hay más pokemons", Toast.LENGTH_SHORT).show()
+        }
         val service = PokeApiService.create()
         return service.getPokemon(id).awaitResponse()
     }
